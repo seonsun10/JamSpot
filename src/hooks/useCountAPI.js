@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { CURRENT_CONFIG, debugLog } from '../config'
 
-const COUNT_API_BASE = 'https://api.countapi.xyz'
+// API 엔드포인트 - Vercel 배포시 자동으로 /api/counter 사용
+const API_BASE = '/api/counter'
 const STORAGE_KEY = 'jamspot_stats'
 
 // localStorage 함수들
@@ -22,34 +23,51 @@ function saveLocalStats(stats) {
     }
 }
 
+// API 호출 함수
+async function callCounterAPI(action, key) {
+    try {
+        const res = await fetch(`${API_BASE}?action=${action}&key=${key}`)
+        if (res.ok) {
+            const data = await res.json()
+            return data.value
+        }
+        throw new Error('API call failed')
+    } catch (error) {
+        debugLog('API error:', error.message)
+        throw error
+    }
+}
+
 // 참여자 수 조회 훅
 export function useParticipants(contentId) {
     const [count, setCount] = useState(0)
     const [loading, setLoading] = useState(true)
 
-    useEffect(() => {
-        async function fetchCount() {
-            if (CURRENT_CONFIG.useCountAPI) {
-                try {
-                    const res = await fetch(`${COUNT_API_BASE}/get/${CURRENT_CONFIG.apiNamespace}/${contentId}`)
-                    const data = await res.json()
-                    debugLog(`CountAPI get: ${contentId} = ${data.value}`)
-                    setCount(data.value || 0)
-                } catch (error) {
-                    console.error('CountAPI error:', error)
-                    const stats = getLocalStats()
-                    setCount(stats[contentId]?.participants || 0)
-                }
-            } else {
+    const fetchCount = useCallback(async () => {
+        const key = `${CURRENT_CONFIG.apiNamespace}:${contentId}`
+
+        if (CURRENT_CONFIG.useCountAPI) {
+            try {
+                const value = await callCounterAPI('get', key)
+                debugLog(`API get: ${contentId} = ${value}`)
+                setCount(value || 0)
+            } catch (error) {
+                // 폴백: localStorage
                 const stats = getLocalStats()
                 setCount(stats[contentId]?.participants || 0)
             }
-            setLoading(false)
+        } else {
+            const stats = getLocalStats()
+            setCount(stats[contentId]?.participants || 0)
         }
-        fetchCount()
+        setLoading(false)
     }, [contentId])
 
-    return { count, loading }
+    useEffect(() => {
+        fetchCount()
+    }, [fetchCount])
+
+    return { count, loading, refetch: fetchCount }
 }
 
 // 총 참여자 수 조회 훅
@@ -59,11 +77,12 @@ export function useTotalParticipants() {
 
     useEffect(() => {
         async function fetchTotal() {
+            const key = `${CURRENT_CONFIG.apiNamespace}:total`
+
             if (CURRENT_CONFIG.useCountAPI) {
                 try {
-                    const res = await fetch(`${COUNT_API_BASE}/get/${CURRENT_CONFIG.apiNamespace}/total`)
-                    const data = await res.json()
-                    setTotal(data.value || 0)
+                    const value = await callCounterAPI('get', key)
+                    setTotal(value || 0)
                 } catch (error) {
                     const stats = getLocalStats()
                     const sum = Object.values(stats).reduce((s, item) => s + (item.participants || 0), 0)
@@ -84,19 +103,22 @@ export function useTotalParticipants() {
 
 // 참여자 수 증가 함수
 export async function incrementParticipants(contentId) {
+    // 항상 로컬에도 저장 (폴백용)
+    incrementLocalParticipants(contentId)
+
     if (CURRENT_CONFIG.useCountAPI) {
         try {
+            const key = `${CURRENT_CONFIG.apiNamespace}:${contentId}`
+            const totalKey = `${CURRENT_CONFIG.apiNamespace}:total`
+
             // 개별 콘텐츠 증가
-            await fetch(`${COUNT_API_BASE}/hit/${CURRENT_CONFIG.apiNamespace}/${contentId}`)
+            await callCounterAPI('incr', key)
             // 총 참여자 수 증가
-            await fetch(`${COUNT_API_BASE}/hit/${CURRENT_CONFIG.apiNamespace}/total`)
-            debugLog(`CountAPI hit: ${contentId}`)
+            await callCounterAPI('incr', totalKey)
+            debugLog(`API incr: ${contentId}`)
         } catch (error) {
-            console.error('CountAPI error:', error)
-            incrementLocalParticipants(contentId)
+            console.warn('API increment failed:', error.message)
         }
-    } else {
-        incrementLocalParticipants(contentId)
     }
 }
 
