@@ -708,3 +708,162 @@
   margin-bottom: 32px;
 }
 
+/* ==================== Theme: Country ==================== */
+.country-theme {
+  background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+  color: #1565C0;
+}
+
+.country-theme .title-badge, .country-theme .start-btn, .country-theme .result-badge {
+  background: linear-gradient(135deg, #0077B6, #00B4D8);
+  color: white;
+}
+
+.country-theme .progress-fill {
+  background: linear-gradient(135deg, #0077B6, #00B4D8);
+}
+
+/* ==================== Theme: Love ==================== */
+.love-theme {
+  background: linear-gradient(135deg, #FCE4EC, #F8BBD9);
+  color: #880E4F;
+}
+
+.love-theme .title-badge, .love-theme .start-btn, .love-theme .result-badge {
+  background: linear-gradient(135deg, #E91E63, #FF5722);
+  color: white;
+}
+
+.love-theme .progress-fill {
+  background: linear-gradient(135deg, #E91E63, #FF5722);
+}
+
+/* ==================== Theme: Money ==================== */
+.money-theme {
+  background: linear-gradient(135deg, #FFF8E1, #FFECB3);
+  color: #E65100;
+}
+
+.money-theme .title-badge, .money-theme .start-btn, .money-theme .result-badge {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  color: #333;
+}
+
+.money-theme .progress-fill {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+}
+
+/* ==================== Theme: Friend ==================== */
+.friend-theme {
+  background: linear-gradient(135deg, #EDE7F6, #D1C4E9);
+  color: #4A148C;
+}
+
+.friend-theme .title-badge, .friend-theme .start-btn, .friend-theme .result-badge {
+  background: linear-gradient(135deg, #9B59B6, #E74C3C);
+  color: white;
+}
+
+.friend-theme .progress-fill {
+  background: linear-gradient(135deg, #9B59B6, #E74C3C);
+}
+
+/* ==================== Theme: Office ==================== */
+.office-theme {
+  background: linear-gradient(135deg, #ECEFF1, #CFD8DC);
+  color: #263238;
+}
+
+.office-theme .title-badge, .office-theme .start-btn, .office-theme .result-badge {
+  background: linear-gradient(135deg, #34495E, #7F8C8D);
+  color: white;
+}
+
+.office-theme .progress-fill {
+  background: linear-gradient(135deg, #34495E, #7F8C8D);
+}
+
+/* ==================== Theme: Fortune ==================== */
+.fortune-theme {
+  background: linear-gradient(135deg, #E8EAF6, #C5CAE9);
+  color: #311B92;
+}
+
+.fortune-theme .title-badge, .fortune-theme .start-btn, .fortune-theme .result-badge {
+  background: linear-gradient(135deg, #8E44AD, #9B59B6);
+  color: white;
+}
+
+.fortune-theme .progress-fill {
+  background: linear-gradient(135deg, #8E44AD, #9B59B6);
+}
+
+.fortune-details {
+  text-align: left;
+  margin: 24px 0;
+}
+
+.fortune-item {
+  background: rgba(255,255,255,0.9);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.fortune-item span {
+  font-weight: 700;
+  color: #8E44AD;
+}
+
+.fortune-item p {
+  margin: 8px 0 0;
+  color: #333;
+}
+
+.lucky-items {
+  background: rgba(255,255,255,0.9);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 20px 0;
+}
+
+.lucky-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.lucky-row:last-child {
+  border-bottom: none;
+}
+
+/* ==================== Balance Result List ==================== */
+.balance-result-list {
+  text-align: left;
+  margin: 20px 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.balance-result-item {
+  background: rgba(255,255,255,0.9);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.balance-q {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.balance-a {
+  font-weight: 600;
+  color: #333;
+}
+
+
