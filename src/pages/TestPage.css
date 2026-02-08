@@ -1,0 +1,569 @@
+/* ==================== Common Test Page Styles ==================== */
+.test-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.test-page .container {
+  width: 100%;
+  max-width: 480px;
+}
+
+/* ==================== Back Button ==================== */
+.back-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  margin-bottom: 20px;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid currentColor;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.back-btn:hover {
+  opacity: 1;
+}
+
+/* ==================== Landing Content ==================== */
+.landing-content {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.title-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.main-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  margin-bottom: 32px;
+}
+
+.start-btn {
+  width: 100%;
+  max-width: 300px;
+  padding: 18px 32px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.start-btn:hover {
+  transform: translateY(-2px);
+}
+
+.participants {
+  margin-top: 24px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* ==================== Quiz Content ==================== */
+.quiz-header {
+  margin-bottom: 32px;
+}
+
+.progress-bar {
+  height: 8px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.quiz-content {
+  background: rgba(255,255,255,0.1);
+  border-radius: 24px;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.question-number {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.question-text {
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.option-btn {
+  width: 100%;
+  padding: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.1);
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.option-btn:hover {
+  background: rgba(255,255,255,0.2);
+  transform: scale(1.02);
+}
+
+/* ==================== Balance Game Specific ==================== */
+.balance-content {
+  background: rgba(255,255,255,0.05);
+}
+
+.balance-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.balance-option {
+  width: 100%;
+  padding: 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.05);
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.balance-option.option-a:hover {
+  border-color: #3B82F6;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.balance-option.option-b:hover {
+  border-color: #EC4899;
+  background: rgba(236, 72, 153, 0.1);
+}
+
+.vs-divider {
+  font-size: 1.2rem;
+  font-weight: 800;
+  opacity: 0.6;
+  padding: 8px 0;
+}
+
+/* ==================== Loading ==================== */
+.loading-content {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.loading-spinner {
+  font-size: 5rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  margin-top: 24px;
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+/* ==================== Result ==================== */
+.result-content {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.result-badge {
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.result-icon {
+  font-size: 5rem;
+  margin-bottom: 16px;
+  animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes popIn {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+.result-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.result-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0.8;
+  margin-bottom: 32px;
+}
+
+.result-percentage {
+  font-size: 1.1rem;
+  font-weight: 600;
+  opacity: 0.8;
+  margin-bottom: 16px;
+}
+
+/* Result Meter */
+.result-meter {
+  margin-bottom: 32px;
+}
+
+.meter-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.meter-bar {
+  height: 12px;
+  background: linear-gradient(to right, #3B82F6, #EC4899);
+  border-radius: 10px;
+  position: relative;
+}
+
+.meter-indicator {
+  position: absolute;
+  top: -20px;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  transition: left 0.5s ease;
+}
+
+/* Result Actions */
+.result-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.share-btn, .restart-btn, .home-btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  text-align: center;
+}
+
+.share-btn {
+  background: #FEE500;
+  color: #3C1E1E;
+  border: none;
+}
+
+.restart-btn {
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.3);
+  color: inherit;
+}
+
+.home-btn {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: inherit;
+}
+
+/* ==================== Lunch Random Specific ==================== */
+.food-categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.food-categories .category-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 12px;
+  background: rgba(255,255,255,0.9);
+  border: 2px solid #E5E7EB;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #57534E;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.food-categories .category-btn span:first-child {
+  font-size: 1.8rem;
+}
+
+.food-categories .category-btn.active {
+  background: linear-gradient(135deg, #F59E0B, #EF4444);
+  color: white;
+  border-color: transparent;
+}
+
+.roulette-container {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.roulette-wheel {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+  border-radius: 50%;
+  border: 8px solid #F59E0B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 30px rgba(245, 158, 11, 0.3);
+}
+
+.roulette-wheel.spinning {
+  animation: rouletteSpin 0.1s linear infinite;
+}
+
+@keyframes rouletteSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.roulette-display {
+  font-size: 4rem;
+}
+
+.roulette-pointer {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  color: #D97706;
+}
+
+.spin-btn {
+  width: 100%;
+  max-width: 280px;
+  padding: 18px 32px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, #F59E0B, #EF4444);
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.spin-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.lunch-result {
+  margin-top: 32px;
+  animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.lunch-result .result-card {
+  background: white;
+  border-radius: 24px;
+  padding: 32px 24px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.result-label {
+  font-size: 0.9rem;
+  color: #57534E;
+}
+
+.result-menu {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #D97706;
+  margin: 8px 0;
+}
+
+.result-emoji-big {
+  font-size: 4rem;
+  margin-bottom: 24px;
+}
+
+.search-btn {
+  display: inline-block;
+  width: 100%;
+  padding: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: #22C55E;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+  background: #16A34A;
+}
+
+/* ==================== Theme: Joseon ==================== */
+.joseon-theme {
+  background: linear-gradient(135deg, #FDF6E3, #F5E6D3);
+  color: #5D4037;
+}
+
+.joseon-theme .title-badge {
+  background: linear-gradient(135deg, #8B4513, #D4A574);
+  color: white;
+}
+
+.joseon-theme .start-btn {
+  background: linear-gradient(135deg, #8B4513, #D4A574);
+  box-shadow: 0 8px 30px rgba(139, 69, 19, 0.3);
+}
+
+.joseon-theme .progress-fill {
+  background: linear-gradient(135deg, #8B4513, #D4A574);
+}
+
+.joseon-theme .question-number {
+  background: rgba(139, 69, 19, 0.2);
+  color: #5D4037;
+}
+
+.joseon-theme .result-badge {
+  background: linear-gradient(135deg, #8B4513, #D4A574);
+  color: white;
+}
+
+/* ==================== Theme: MZ ==================== */
+.mz-theme {
+  background: #0F0F1A;
+  color: #FFFFFF;
+}
+
+.mz-theme .title-badge {
+  background: linear-gradient(135deg, #3B82F6, #EC4899);
+  color: white;
+}
+
+.mz-theme .start-btn {
+  background: linear-gradient(135deg, #3B82F6, #EC4899);
+  box-shadow: 0 8px 30px rgba(236, 72, 153, 0.3);
+}
+
+.mz-theme .progress-fill {
+  background: linear-gradient(135deg, #3B82F6, #EC4899);
+}
+
+.mz-theme .result-badge {
+  background: linear-gradient(135deg, #3B82F6, #EC4899);
+  color: white;
+}
+
+.mz-theme .highlight-m {
+  color: #3B82F6;
+}
+
+.mz-theme .highlight-z {
+  color: #EC4899;
+}
+
+.mz-theme .generation-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 40px;
+  font-size: 3rem;
+}
+
+.mz-theme .vs {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #3B82F6, #EC4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==================== Theme: Lunch ==================== */
+.lunch-theme {
+  background: #FEFCE8;
+  color: #1C1917;
+}
+
+.lunch-theme .title-badge {
+  background: linear-gradient(135deg, #F59E0B, #EF4444);
+  color: white;
+}
+
+.lunch-theme .back-btn {
+  color: #57534E;
+  border-color: #F59E0B;
+}
