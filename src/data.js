@@ -38,8 +38,7 @@ export const CONTENTS = [
         description: '당신의 MBTI를 동물로 표현하면?',
         emoji: '🦊',
         path: '/test/mbti-animal',
-        gradient: 'linear-gradient(135deg, #FF6B35, #F7C59F)',
-        comingSoon: true
+        gradient: 'linear-gradient(135deg, #FF6B35, #F7C59F)'
     }
 ]
 

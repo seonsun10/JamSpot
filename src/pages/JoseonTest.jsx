@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useParticipants, incrementParticipants, formatNumber } from '../hooks/useCountAPI'
+import { Toast, useToast } from '../components/Toast'
 import './TestPage.css'
 
 const CONTENT_ID = 'joseon-test'
@@ -44,11 +45,12 @@ function getResultType(scores) {
 }
 
 export default function JoseonTest() {
-  const [page, setPage] = useState('landing') // landing, quiz, loading, result
+  const [page, setPage] = useState('landing')
   const [currentQ, setCurrentQ] = useState(0)
   const [scores, setScores] = useState({ P: 0, S: 0, W: 0 })
   const [resultType, setResultType] = useState(null)
   const { count } = useParticipants(CONTENT_ID)
+  const { toast, showToast } = useToast()
 
   const handleStart = () => {
     setPage('quiz')
@@ -73,6 +75,11 @@ export default function JoseonTest() {
         setPage('result')
       }, 2500)
     }
+  }
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(window.location.href)
+    showToast('✅ 링크가 복사되었습니다!')
   }
 
   if (page === 'landing') {
@@ -143,7 +150,7 @@ export default function JoseonTest() {
             <h1 className="result-title">{result.title}</h1>
             <p className="result-description">{result.description}</p>
             <div className="result-actions">
-              <button className="share-btn" onClick={() => navigator.clipboard.writeText(window.location.href)}>
+              <button className="share-btn" onClick={handleCopyLink}>
                 🔗 링크 복사
               </button>
               <button className="restart-btn" onClick={handleStart}>🔄 다시하기</button>
@@ -151,6 +158,7 @@ export default function JoseonTest() {
             </div>
           </div>
         </div>
+        <Toast show={toast.show} message={toast.message} />
       </div>
     )
   }

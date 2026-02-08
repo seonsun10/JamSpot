@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useParticipants, incrementParticipants, formatNumber } from '../hooks/useCountAPI'
+import { Toast, useToast } from '../components/Toast'
 import './TestPage.css'
 
 const CONTENT_ID = 'balance-mz'
@@ -32,6 +33,7 @@ export default function BalanceGame() {
   const [mScore, setMScore] = useState(0)
   const [result, setResult] = useState(null)
   const { count } = useParticipants(CONTENT_ID)
+  const { toast, showToast } = useToast()
 
   const handleStart = () => {
     setPage('game')
@@ -58,6 +60,11 @@ export default function BalanceGame() {
       await incrementParticipants(CONTENT_ID)
       setPage('result')
     }
+  }
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(window.location.href)
+    showToast('✅ 링크가 복사되었습니다!')
   }
 
   if (page === 'landing') {
@@ -123,12 +130,13 @@ export default function BalanceGame() {
             <p className="result-percentage">{result.mPercent >= 50 ? `M세대 성향 ${result.mPercent}%` : `Z세대 성향 ${100 - result.mPercent}%`}</p>
             <p className="result-description">{result.description}</p>
             <div className="result-actions">
-              <button className="share-btn" onClick={() => navigator.clipboard.writeText(window.location.href)}>🔗 링크 복사</button>
+              <button className="share-btn" onClick={handleCopyLink}>🔗 링크 복사</button>
               <button className="restart-btn" onClick={handleStart}>🔄 다시하기</button>
               <Link to="/" className="home-btn">🏠 다른 테스트</Link>
             </div>
           </div>
         </div>
+        <Toast show={toast.show} message={toast.message} />
       </div>
     )
   }

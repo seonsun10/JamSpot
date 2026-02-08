@@ -9,8 +9,88 @@
 
 .test-page .container {
   width: 100%;
-  max-width: 480px;
+  max-width: 600px;
 }
+
+/* Desktop: 더 넓은 레이아웃 */
+@media (min-width: 768px) {
+  .test-page {
+    padding: 40px;
+  }
+  
+  .test-page .container {
+    max-width: 700px;
+  }
+  
+  .main-title {
+    font-size: 2.8rem;
+  }
+  
+  .question-text {
+    font-size: 1.5rem;
+  }
+  
+  .result-icon {
+    font-size: 6rem;
+  }
+  
+  .result-title {
+    font-size: 3rem;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1024px) {
+  .test-page .container {
+    max-width: 800px;
+  }
+  
+  .main-title {
+    font-size: 3.2rem;
+  }
+  
+  .quiz-content {
+    padding: 48px 40px;
+  }
+  
+  .balance-options {
+    flex-direction: row;
+    gap: 24px;
+  }
+  
+  .balance-option {
+    flex: 1;
+  }
+  
+  .vs-divider {
+    padding: 0 16px;
+  }
+  
+  .food-categories {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  
+  .roulette-wheel {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .roulette-display {
+    font-size: 5rem;
+  }
+  
+  .result-actions {
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+  }
+  
+  .share-btn, .restart-btn, .home-btn {
+    width: auto;
+    padding: 16px 32px;
+  }
+}
+
 
 /* ==================== Back Button ==================== */
 .back-btn {
@@ -139,17 +219,20 @@
   padding: 20px;
   font-size: 1rem;
   font-weight: 600;
-  border: 2px solid rgba(255,255,255,0.3);
+  border: 2px solid rgba(0,0,0,0.1);
   border-radius: 16px;
-  background: rgba(255,255,255,0.1);
-  color: inherit;
+  background: rgba(255,255,255,0.9);
+  color: #333;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .option-btn:hover {
-  background: rgba(255,255,255,0.2);
+  background: white;
   transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  border-color: currentColor;
 }
 
 /* ==================== Balance Game Specific ==================== */
@@ -527,6 +610,18 @@
   color: white;
 }
 
+.mz-theme .option-btn,
+.mz-theme .balance-option {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.3);
+  color: white;
+}
+
+.mz-theme .option-btn:hover {
+  background: rgba(255,255,255,0.2);
+  border-color: #EC4899;
+}
+
 .mz-theme .highlight-m {
   color: #3B82F6;
 }
@@ -567,3 +662,49 @@
   color: #57534E;
   border-color: #F59E0B;
 }
+
+/* ==================== Theme: MBTI Animal ==================== */
+.animal-theme {
+  background: linear-gradient(135deg, #FFF7ED, #FFEDD5);
+  color: #431407;
+}
+
+.animal-theme .title-badge {
+  background: linear-gradient(135deg, #FF6B35, #F7C59F);
+  color: white;
+}
+
+.animal-theme .start-btn {
+  background: linear-gradient(135deg, #FF6B35, #F97316);
+  box-shadow: 0 8px 30px rgba(249, 115, 22, 0.3);
+}
+
+.animal-theme .progress-fill {
+  background: linear-gradient(135deg, #FF6B35, #F97316);
+}
+
+.animal-theme .question-number {
+  background: rgba(249, 115, 22, 0.2);
+  color: #431407;
+}
+
+.animal-theme .result-badge {
+  background: linear-gradient(135deg, #FF6B35, #F97316);
+  color: white;
+}
+
+.animal-theme .result-mbti {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #F97316;
+  margin-bottom: 16px;
+}
+
+.animal-preview {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  font-size: 2.5rem;
+  margin-bottom: 32px;
+}
+

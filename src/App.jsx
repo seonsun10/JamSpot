@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import JoseonTest from './pages/JoseonTest'
 import BalanceGame from './pages/BalanceGame'
 import LunchRandom from './pages/LunchRandom'
+import MbtiAnimalTest from './pages/MbtiAnimalTest'
 import './App.css'
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/test/joseon" element={<JoseonTest />} />
+        <Route path="/test/mbti-animal" element={<MbtiAnimalTest />} />
         <Route path="/game/balance" element={<BalanceGame />} />
         <Route path="/random/lunch" element={<LunchRandom />} />
       </Routes>
