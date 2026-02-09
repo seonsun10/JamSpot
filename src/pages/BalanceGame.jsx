@@ -20,11 +20,41 @@ const questions = [
 ]
 
 const resultTexts = {
-  superM: { icon: '👨‍💼', title: '완전 M세대', description: '당신은 진정한 밀레니엄 세대! 성실함과 책임감이 몸에 배어있고, 조직 생활에 능숙합니다.' },
-  moreM: { icon: '🧑‍💼', title: 'M세대 성향', description: 'M세대에 가깝지만 Z세대 감성도 이해해요! 밸런스형 인재입니다.' },
-  balanced: { icon: '🤝', title: 'MZ 하이브리드', description: 'M과 Z의 완벽한 조화! 상황에 따라 유연하게 대처하는 능력자.' },
-  moreZ: { icon: '🧑‍💻', title: 'Z세대 성향', description: 'Z세대에 가깝지만 M세대의 장점도 갖췄어요! 트렌디하면서도 성실한 조합.' },
-  superZ: { icon: '🦸', title: '완전 Z세대', description: '진정한 디지털 네이티브! 새로운 트렌드를 만들어가고, 자기 표현에 적극적이에요.' }
+  superM: { 
+    icon: '👨‍💼', 
+    title: '완전 M세대', 
+    description: '당신은 진정한 밀레니엄 세대! 성실함과 책임감이 몸에 배어있고, 조직 생활에 능숙합니다.',
+    features: ['안정성과 질서를 중요하게 생각함', '경험에서 우러나오는 노련함 보유', '공적인 예의와 격식을 존중함'],
+    advice: '당신의 성숙함은 큰 자산입니다. 가끔은 새로운 트렌드에 과감히 도전해보세요!'
+  },
+  moreM: { 
+    icon: '🧑‍💼', 
+    title: 'M세대 성향', 
+    description: 'M세대에 가깝지만 Z세대 감성도 이해해요! 밸런스형 인재입니다.',
+    features: ['전통적인 가치와 새로운 변화 사이의 조절', '합리적인 의사소통을 선호함', '실무 능력과 트렌드 감각을 겸비함'],
+    advice: '서로 다른 세대를 잇는 가교 역할을 하기 딱 좋은 유형이시군요!'
+  },
+  balanced: { 
+    icon: '🤝', 
+    title: 'MZ 하이브리드', 
+    description: 'M과 Z의 완벽한 조화! 상황에 따라 유연하게 대처하는 능력자.',
+    features: ['어느 쪽에도 치우치지 않는 유연한 사고', '다양한 가치관을 포용할 줄 아는 포용력', '상황에 맞춘 카멜레온 같은 적응력'],
+    advice: '당신이야말로 이 시대를 살아가는 진정한 멀티플레이어입니다!'
+  },
+  moreZ: { 
+    icon: '🧑‍💻', 
+    title: 'Z세대 성향', 
+    description: 'Z세대에 가깝지만 M세대의 장점도 갖췄어요! 트렌디하면서도 성실한 조합.',
+    features: ['자신의 개성을 중시하면서도 현실적임', '디지털 환경에 매우 익숙함', '수평적이고 자유로운 소통을 선호함'],
+    advice: '당신의 센스는 주변을 밝게 만듭니다. 가끔은 깊이 있는 느림의 미학도 즐겨보세요.'
+  },
+  superZ: { 
+    icon: '🦸', 
+    title: '완전 Z세대', 
+    description: '진정한 디지털 네이티브! 새로운 트렌드를 만들어가고, 자기 표현에 적극적이에요.',
+    features: ['틀에 박힌 것을 거부하는 창의성', '자신의 가치관을 당당하게 표현함', '빠르고 효율적인 디지털 라이프 선호'],
+    advice: '세상을 바꾸는 건 당신 같은 개척자들입니다. 당신만의 길을 가세요!'
+  }
 }
 
 export default function BalanceGame() {
@@ -129,6 +159,21 @@ export default function BalanceGame() {
             <h1 className="result-title">{result.title}</h1>
             <p className="result-percentage">{result.mPercent >= 50 ? `M세대 성향 ${result.mPercent}%` : `Z세대 성향 ${100 - result.mPercent}%`}</p>
             <p className="result-description">{result.description}</p>
+
+            <div className="result-details">
+              <div className="detail-card">
+                <h3 className="detail-title">📊 세대 분석 결과</h3>
+                <ul className="feature-list">
+                  {result.features.map((feature, index) => (
+                    <li key={index} className="feature-item">{feature}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="advice-box">
+                ⚖️ <strong>인생 선배의 한마디:</strong> {result.advice}
+              </div>
+            </div>
             <div className="result-actions">
               <button className="share-btn" onClick={handleCopyLink}>🔗 링크 복사</button>
               <button className="restart-btn" onClick={handleStart}>🔄 다시하기</button>

@@ -22,14 +22,62 @@ const questions = [
 ]
 
 const results = {
-  king: { icon: '👑', title: '임금', description: '리더십, 재력, 사교성을 모두 갖춘 당신! 전생에 분명 용포를 입고 계셨을 겁니다.' },
-  prime: { icon: '🎓', title: '영의정', description: '실세 중의 실세! 겉으로는 조용하지만, 뒤에서 모든 일을 조율하는 프로 정치인입니다.' },
-  merchant: { icon: '💰', title: '대상', description: '돈이 최고! 조선 팔도를 누비며 부를 쌓는 큰 상인이셨네요.' },
-  warrior: { icon: '⚔️', title: '무관', description: '정의로운 액션파! 불의를 보면 참지 못하는 뜨거운 피가 흐릅니다.' },
-  entertainer: { icon: '🎭', title: '광대', description: '조선의 인플루언서! 사람들을 웃기고 즐겁게 하는 재주가 타고났습니다.' },
-  innkeeper: { icon: '🍶', title: '주막 이모', description: '만남의 광장, 정보의 허브! 막걸리 한 사발에 동네 소식부터 궁궐 뒷얘기까지!' },
-  scholar: { icon: '📚', title: '선비', description: '청빈낙도! 돈, 권력, 명예보다 지식과 가치를 추구하는 고고한 영혼입니다.' },
-  servant: { icon: '🥲', title: '노비', description: '인생 하드모드... 하지만 괜찮아요! 전생에 고생한 만큼 현생에서 대박 터질 운명입니다.' }
+  king: { 
+    icon: '👑', 
+    title: '임금', 
+    description: '리더십, 재력, 사교성을 모두 갖춘 당신! 전생에 분명 용포를 입고 계셨을 겁니다.',
+    features: ['압도적인 카리스마와 결단력', '사람들의 마음을 움직이는 천성적 리더', '백성을 사랑하는 따뜻한 성품'],
+    advice: '결정이 서면 거침없이 나아가세요. 당신의 직관은 틀리지 않습니다!'
+  },
+  prime: { 
+    icon: '🎓', 
+    title: '영의정', 
+    description: '실세 중의 실세! 겉으로는 조용하지만, 뒤에서 모든 일을 조율하는 프로 정치인입니다.',
+    features: ['탁월한 전략과 위기 관리 능력', '냉철한 판단력과 이성적인 사고', '조직 내 신뢰를 받는 핵심 인물'],
+    advice: '때로는 이성보다 감성에 귀 기울여보세요. 주변이 더 편안해질 거예요.'
+  },
+  merchant: { 
+    icon: '💰', 
+    title: '대상', 
+    description: '돈이 최고! 조선 팔도를 누비며 부를 쌓는 큰 상인이셨네요.',
+    features: ['번뜩이는 아이디어와 경제 관념', '기회를 놓치지 않는 빠른 실행력', '폭넓은 인맥 관리의 달인'],
+    advice: '성공은 나눌수록 커집니다. 주변 동료들에게 따뜻한 응원을 건네보세요.'
+  },
+  warrior: { 
+    icon: '⚔️', 
+    title: '무관', 
+    description: '정의로운 액션파! 불의를 보면 참지 못하는 뜨거운 피가 흐릅니다.',
+    features: ['강인한 체력과 불굴의 의지', '단순명쾌하고 솔직한 성격', '약한 사람을 돕는 정의로운 마음'],
+    advice: '가끔은 앞만 보고 달리기보다 멈춰서서 주변 풍경을 즐겨보세요.'
+  },
+  entertainer: { 
+    icon: '🎭', 
+    title: '광대', 
+    description: '조선의 인플루언서! 사람들을 웃기고 즐겁게 하는 재주가 타고났습니다.',
+    features: ['독보적인 끼와 예술적 감각', '지루함을 참지 못하는 자유로운 영혼', '어디서나 환영받는 분위기 메이커'],
+    advice: '주변을 즐겁게 하는 당신은 이미 최고입니다. 당신의 행복도 챙기는 것 잊지 마세요!'
+  },
+  innkeeper: { 
+    icon: '🍶', 
+    title: '주막 이모', 
+    description: '만남의 광장, 정보의 허브! 막걸리 한 사발에 동네 소식부터 궁궐 뒷얘기까지!',
+    features: ['친근함으로 다가가는 친화력', '남의 고민을 잘 들어주는 공감 능력', '세상 돌아가는 이치에 밝은 정보력'],
+    advice: '가끔은 남의 고민보다 당신의 마음속 이야기에 귀 기울여보세요.'
+  },
+  scholar: { 
+    icon: '📚', 
+    title: '선비', 
+    description: '청빈낙도! 돈, 권력, 명예보다 지식과 가치를 추구하는 고고한 영혼입니다.',
+    features: ['깊이 있는 사고와 철학적 세계관', '원칙을 지키는 올곧은 성격', '조용하지만 강인한 내면의 소유자'],
+    advice: '책상 앞을 떠나 세상 밖의 즐거움도 가끔은 만끽해보세요!'
+  },
+  servant: { 
+    icon: '🥲', 
+    title: '노비', 
+    description: '인생 하드모드... 하지만 괜찮아요! 전생에 고생한 만큼 현생에서 대박 터질 운명입니다.',
+    features: ['어떤 상황에서도 살아남는 생활력', '성실함과 묵묵히 제 할 일을 하는 끈기', '남들에게 편안함을 주는 평범함의 미학'],
+    advice: '당신은 생각보다 훨씬 대단한 사람입니다. 어깨를 펴고 자신감을 가지세요!'
+  }
 }
 
 function getResultType(scores) {
@@ -149,6 +197,21 @@ export default function JoseonTest() {
             <div className="result-icon">{result.icon}</div>
             <h1 className="result-title">{result.title}</h1>
             <p className="result-description">{result.description}</p>
+
+            <div className="result-details">
+              <div className="detail-card">
+                <h3 className="detail-title">📜 주요 특징</h3>
+                <ul className="feature-list">
+                  {result.features.map((feature, index) => (
+                    <li key={index} className="feature-item">{feature}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="advice-box">
+                💡 <strong>선비의 조언:</strong> {result.advice}
+              </div>
+            </div>
             <div className="result-actions">
               <button className="share-btn" onClick={handleCopyLink}>
                 🔗 링크 복사
